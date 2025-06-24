@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Memory Game - Kenangan Kita</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffd1dc, #f5e6ff);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      color: #c2185b;
+      margin-bottom: 20px;
+    }
+    .game-board {
+      display: grid;
+      grid-template-columns: repeat(4, 80px);
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .card {
+      width: 80px;
+      height: 80px;
+      background: white;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: transform 0.3s;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      user-select: none;
+    }
+    .card.flipped {
+      background: #f06292;
+      color: white;
+      transform: rotateY(180deg);
+    }
+    .btn-next {
+      padding: 10px 25px;
+      border: none;
+      border-radius: 30px;
+      background-color: #c2185b;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn-next:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h1>MINI GEMM</h1>
+  <p>cocokin emoji duluu, emoji apa yah kira kira ini hmzz intinaa kalau berhasil semua, lanjut ke selanjutnya okey!</p>
+
+  <div class="game-board" id="board"></div>
+
+  <button class="btn-next" id="nextBtn" style="display: none;" onclick="location.href='stage-2-love.html'">Lanjut ke Kejutan Selanjutnya 💌</button>
+
+  <script>
+    const emojis = ['👩‍❤️‍👩', '💋', '🎁', '💌', '🎶', '🌙', '🍰', '🎥'];
+    const pairs = [...emojis, ...emojis];
+    let first, second, lock = false;
+    let matched = 0;
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function createBoard() {
+      const board = document.getElementById('board');
+      shuffle(pairs).forEach((emoji, i) => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.dataset.emoji = emoji;
+        card.innerText = '❓';
+
+        card.addEventListener('click', () => {
+          if (lock || card.classList.contains('flipped')) return;
+          card.classList.add('flipped');
+          card.innerText = emoji;
+
+          if (!first) {
+            first = card;
+          } else {
+            second = card;
+            checkMatch();
+          }
+        });
+
+        board.appendChild(card);
+      });
+    }
+
+    function checkMatch() {
+      lock = true;
+      if (first.dataset.emoji === second.dataset.emoji) {
+        matched += 2;
+        resetTurn();
+        if (matched === pairs.length) {
+          document.getElementById('nextBtn').style.display = 'block';
+        }
+      } else {
+        setTimeout(() => {
+          first.classList.remove('flipped');
+          second.classList.remove('flipped');
+          first.innerText = '❓';
+          second.innerText = '❓';
+          resetTurn();
+        }, 800);
+      }
+    }
+
+    function resetTurn() {
+      [first, second] = [null, null];
+      lock = false;
+    }
+
+    createBoard();
+  </script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>All Compliments fu 💜</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffe6f0, #e1bee7);
+      color: #6a1b9a;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      max-width: 900px;
+      width: 100%;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      overflow: hidden;
+      user-select: none;
+    }
+
+    th, td {
+      padding: 14px 20px;
+      border-bottom: 1px solid #f0cde6;
+      font-size: 1.1rem;
+      color: #ad1457;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f48fb1;
+      color: white;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fce4ec;
+    }
+
+    tr:hover {
+      background-color: #f8bbd0;
+      color: #4a0072;
+      cursor: default;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 10px;
+      }
+      table, th, td {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>All Compliments for You 💜</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Compliment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Rows will be injected here -->
+    </tbody>
+  </table>
+
+  <script>
+    const compliments = [
+     "you’re the kind of beautiful that leaves me speechless.",
+"i’m amazed every time i see you — you make my world softer.",
+"your voice is the calm in my chaos.",
+"the way you say my name makes me want forever with you.",
+"you’re the perfect blend of wild and sweet — and i adore both.",
+"if love had a face, it would look exactly like you.",
+"you inspire me to be the best version of myself.",
+"bored? impossible. i haven’t even finished admiring you yet.",
+"your eyes erase the biggest worries i have.",
+"funny how you’re a little annoying, yet i fall harder every day.",
+"your smile can turn the worst day into something worth living for.",
+"among all poems i’ve written, you’re my favorite verse.",
+"if god granted me a miracle, it’d be the moment i met you.",
+"you don’t realize how priceless you are to me, do you?",
+"you’re the most patient, sincere, and beautiful in my eyes.",
+"even from afar, you make me smile crazily.",
+"if someone asks why i never give up, the answer is you.",
+"every little thing about you makes me feel loved.",
+"you are the home i never want to leave.",
+"no reason needed — i love you because you’re you.",
+"you’re like music — unseen but making my heart dance.",
+"i know you don’t believe it, so i wrote this to prove it to you.",
+"your laugh is my favorite sound on earth.",
+"you light up every room you enter.",
+"your kindness makes the world a better place.",
+"i’m lucky just to have your hand to hold.",
+"your soul shines brighter than any star.",
+"you’re the peace my heart has been searching for.",
+"every moment with you feels like magic.",
+"you make simple things extraordinary.",
+"being with you feels like home.",
+"your smile is my daily dose of happiness.",
+"you make love look effortless and beautiful.",
+"you’re the answer to my every prayer.",
+"your eyes tell stories i want to read forever.",
+"you bring colors to my black-and-white world.",
+"your strength inspires me to be better.",
+"i fall more in love with you every single day.",
+"you are my favorite hello and hardest goodbye.",
+"with you, even silence is comfortable.",
+"you have the kindest heart i’ve ever known.",
+"you make my dreams feel possible.",
+"i can’t imagine life without your smile.",
+"you’re the sunshine after my rain.",
+"your presence makes everything brighter.",
+"you’re the melody in my life’s soundtrack.",
+"you’re more amazing than you’ll ever know.",
+"i’m grateful for every second with you.",
+"you make me believe in forever.",
+"your love is my greatest adventure.",
+"you’re the spark that lights up my soul.",
+"you make my heart skip a beat.",
+"i cherish every laugh we share.",
+"you bring warmth to my coldest days.",
+"you’re my favorite thought before sleep.",
+"your hugs are my safest place.",
+"you’re the sweetest part of my story.",
+"you turn ordinary moments into memories.",
+"i love how you make me feel seen.",
+"you’re my forever and always.",
+"you give meaning to my life.",
+"i’m better because of you.",
+"you’re a dream i never want to wake from.",
+"your smile is my greatest treasure.",
+"you make my world worth living.",
+"i’m addicted to your kindness.",
+"you’re the highlight of my day.",
+"you make love feel real.",
+"i adore everything about you.",
+"you’re my heart’s favorite beat.",
+"you inspire me beyond words.",
+"i’m blessed to call you mine.",
+"you make me laugh like no one else.",
+"your eyes sparkle brighter than diamonds.",
+"you’re my perfect imperfect.",
+"i love your wild and gentle sides.",
+"you make ordinary moments magical.",
+"you’re my light in the dark.",
+"i treasure your every word.",
+"you make my heart whole.",
+"your love is my anchor.",
+"you’re the reason i smile daily.",
+"i’m proud of you every day.",
+"you make everything better just by being you.",
+"you’re the sweetest surprise life gave me.",
+"i fall for you over and over again.",
+"you’re my calm in every storm.",
+"i’m grateful for your love every second.",
+"you’re my greatest happiness.",
+"you make the impossible possible.",
+"i love your soul’s beauty.",
+"you’re my forever inspiration.",
+"you make every day worth it.",
+"i adore your beautiful mind.",
+"you’re my heart’s home.",
+"your love feels like sunshine.",
+"i’m lucky to have you in my life.",
+"you make me a better person.",
+"i love you more than words can say.",
+"your existence makes ordinary days feel extraordinary.",
+"there’s a kind of beauty in you that even silence can’t hide.",
+"i swear, your eyes hold galaxies my soul could get lost in.",
+"even the stars envy the way you shine without trying.",
+"your presence is like a soft melody — calm but impossible to forget.",
+"you carry a kind of elegance that doesn’t ask for attention, but owns the room anyway."
+    ];
+
+    const tbody = document.querySelector('tbody');
+    compliments.forEach((compliment, idx) => {
+      const tr = document.createElement('tr');
+      const tdIndex = document.createElement('td');
+      tdIndex.textContent = idx + 1;
+      const tdText = document.createElement('td');
+      tdText.textContent = compliment;
+      tr.appendChild(tdIndex);
+      tr.appendChild(tdText);
+      tbody.appendChild(tr);
+    });
+  </script>
+</body>
+</html>

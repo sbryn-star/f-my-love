@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Love Calculator💞</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffe6f0, #e0f7fa);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #d81b60;
+      margin-bottom: 10px;
+    }
+
+    p {
+      max-width: 500px;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    input {
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 20px;
+      border: 2px solid #f06292;
+      font-size: 1rem;
+      width: 200px;
+      text-align: center;
+    }
+
+    button {
+      background-color: #f06292;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .progress-bar {
+      width: 300px;
+      height: 20px;
+      background: #eee;
+      border-radius: 10px;
+      margin-top: 20px;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(to right, #f06292, #ba68c8);
+      transition: width 1s;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 1.3rem;
+      color: #4a148c;
+      min-height: 40px;
+    }
+
+    .btn-next {
+      margin-top: 30px;
+      background: #ab47bc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Love Calculator 💗</h1>
+  <p>we've come this far, how big is the percentage of my love fu?</p>
+
+  <input type="text" id="yourName" placeholder="yourname" />
+  <input type="text" id="herName" placeholder="hername" />
+
+  <br />
+  <button onclick="startCalc()">Calculate Love 💘</button>
+
+  <div class="progress-bar"><div class="progress" id="bar"></div></div>
+  <div class="result" id="resultText"></div>
+
+  <button class="btn-next" style="display:none" onclick="location.href='stage-3-letters.html'"> continue on to the love letter 💌</button>
+
+  <script>
+    function startCalc() {
+      const name1 = document.getElementById('yourName').value.trim();
+      const name2 = document.getElementById('herName').value.trim();
+      const result = document.getElementById('resultText');
+      const bar = document.getElementById('bar');
+      const nextBtn = document.querySelector('.btn-next');
+
+      if (!name1 || !name2) {
+        result.textContent = "isi namanya dulu dong dik";
+        return;
+      }
+
+      result.textContent = "";
+      bar.style.width = '0%';
+      let percent = 0;
+
+      const loading = setInterval(() => {
+        percent += Math.floor(Math.random() * 8) + 5;
+        if (percent >= 100) {
+          clearInterval(loading);
+          const final = Math.floor(99 + Math.random() * 15);
+          bar.style.width = final + "%";
+          result.innerHTML = `❤️ my love fu: <strong>${final}%</strong> ❤️<br><small>(dan itu baru permulaan 😚)</small>`;
+          nextBtn.style.display = 'inline-block';
+        } else {
+          bar.style.width = percent + "%";
+        }
+      }, 100);
+    }
+  </script>
+</body>
+</html>

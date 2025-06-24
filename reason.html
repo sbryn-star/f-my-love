@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Reasons Why I Love You 💝</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #fdeff9, #ffcfe7);
+      color: #6a1b9a;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      color: #ad1457;
+    }
+    .desc {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+    .reason-box {
+      background: white;
+      padding: 30px 25px;
+      border-radius: 20px;
+      margin: 0 auto 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 700px;
+      font-size: 1.3rem;
+      min-height: 120px;
+      color: #880e4f;
+      transition: 0.3s;
+    }
+    .btn-reason {
+      background: #d81b60;
+      border: none;
+      color: white;
+      padding: 12px 30px;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-bottom: 20px;
+    }
+    .btn-reason:hover {
+      transform: scale(1.05);
+    }
+    .btn-next {
+      background: #8e24aa;
+      margin-top: 20px;
+    }
+    .btn-prev {
+      background: #ec407a;
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Reasons Why I Love You</h1>
+  <div class="desc">Click to see every little reason why you're the best thing in my life 💖</div>
+
+  <div class="reason-box" id="reason">Click the button below first 😊</div>
+  <button class="btn-reason" onclick="showReason()">Show Me Another Reason</button>
+  <br>
+  <button class="btn-reason btn-prev" onclick="location.href='stage-4-compliment.html'">
+    ← Back to Compliments 🌸
+  </button>
+  <br>
+  <button class="btn-reason btn-next" onclick="location.href='stage-6-daily-note.html'">
+    Go to The Next
+  </button>
+
+  <script>
+    const reasons = [
+      "Your smile is my favorite view.",
+      "You listen to me even when I ramble.",
+      "You love me even on my bad days.",
+      "Your voice is my calm.",
+      "You believe in me more than I believe in myself.",
+      "You make long distance feel close.",
+      "You never give up on us.",
+      "You’re not afraid to be silly with me.",
+      "You know exactly how to cheer me up.",
+      "You care deeply about little things.",
+      "You remember my favorites without asking.",
+      "You accept me as I am.",
+      "You make ordinary days feel special.",
+      "You’re my safe space.",
+      "You surprise me in the sweetest ways.",
+      "You’re endlessly patient.",
+      "You challenge me to grow.",
+      "Your eyes light up when you’re excited.",
+      "You’re incredibly supportive.",
+      "You love without conditions.",
+      "You let me be myself.",
+      "You make every goodbye feel temporary.",
+      "You know how to make me laugh.",
+      "You bring out the best in me.",
+      "You handle me at my worst.",
+      "You make time for me even when you're tired.",
+      "You understand my silence.",
+      "You look so good even in pajamas.",
+      "You make every memory brighter.",
+      "You give the best hugs.",
+      "You kiss like you mean it.",
+      "You light up my life.",
+      "You give me butterflies.",
+      "You’re thoughtful without even trying.",
+      "You care for people deeply.",
+      "You make me feel seen.",
+      "You make effort when it matters most.",
+      "You keep our love playful.",
+      "You make me want forever.",
+      "You see beauty in simple things.",
+      "You’re my biggest fan.",
+      "You look adorable when you’re focused.",
+      "You make holidays feel magical.",
+      "You understand me better than anyone.",
+      "You don’t let me give up.",
+      "You’re stronger than you realize.",
+      "You smell like home.",
+      "You’re my happy place.",
+      "You ask the best questions.",
+      "You make my heart full.",
+      "You’re more than I ever dreamed of.",
+      "You’re worth everything.",
+      "You’re beautiful when you cry.",
+      "You look gorgeous every single day.",
+      "You make me want to be better.",
+      "You made me believe in love again.",
+      "You are my reason for everything.",
+      "You laugh like sunshine.",
+      "You’re a miracle I get to love.",
+      "You matter more than you know.",
+      "You’re my once in a lifetime.",
+      "You’re the story I’ll always tell.",
+      "You make waiting worth it.",
+      "You speak to my soul.",
+      "You’re irreplaceable.",
+      "You never make me feel alone.",
+      "You’re my softness in a hard world.",
+      "You’re the melody I never get tired of.",
+      "You make love feel easy.",
+      "You turned my world into poetry.",
+      "You see past my walls.",
+      "You’re my midnight thoughts.",
+      "You laugh with your whole being.",
+      "You make even silence comforting.",
+      "You are my proof that love heals.",
+      "You’re my answered prayer.",
+      "You’re the calm in my chaos.",
+      "You feel like destiny.",
+      "You were worth the wait.",
+      "You fit perfectly into my life.",
+      "You bring colors to my greys.",
+      "You are my forever person.",
+      "You don’t even realize how lovable you are.",
+      "You gave me purpose.",
+      "You give me hope every day.",
+      "You made my heart believe again.",
+      "You shine brighter than stars.",
+      "You changed my life.",
+      "You inspire me daily.",
+      "You’re the best part of my day.",
+      "You make life worth it.",
+      "You’re everything I never knew I needed.",
+      "You’re my favorite hello.",
+      "You’re my hardest goodbye.",
+      "You make everything feel right.",
+      "You make the bad days better.",
+      "You feel like home.",
+      "You complete my world.",
+      "You’re my safe harbor.",
+      "You make me feel lucky every day.",
+      "You are my heart’s favorite.",
+      "You bring out the romantic in me.",
+      "You have my whole heart.",
+      "You’re my always."
+    ];
+
+    function showReason() {
+      const box = document.getElementById("reason");
+      const idx = Math.floor(Math.random() * reasons.length);
+      box.innerText = reasons[idx];
+    }
+  </script>
+
+</body>
+</html>

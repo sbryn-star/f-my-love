@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Surat Cinta untuk Kamu</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #fff0f5, #e1bee7);
+      font-family: 'Segoe UI', sans-serif;
+      padding: 40px 20px;
+      text-align: center;
+      color: #6a1b9a;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .desc {
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+    }
+
+    .letters {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .letter {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    .letter:hover {
+      transform: scale(1.05);
+    }
+
+    .letter.opened {
+      background: #f8bbd0;
+      color: white;
+    }
+
+    .letter-content {
+      display: none;
+      margin-top: 15px;
+      font-size: 0.95rem;
+      text-align: left;
+    }
+
+    .letter.opened .letter-content {
+      display: block;
+    }
+
+    .btn-next {
+      margin-top: 40px;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 30px;
+      background-color: #ab47bc;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-next:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h1>love letters fu</h1>
+  <div class="desc">klik satu-satu suratnya ya, jangan curang okayy</div>
+
+  <div class="letters">
+    <div class="letter" onclick="openLetter(this)">
+      LETTER#1
+      <div class="letter-content">
+        from the beginning, i never promised that everything would be perfect.
+but i promised to try, every single day.
+u’re not here because everything is always fun —
+u’re here because we choose each other, even when it's not.
+      </div>
+    </div>
+    <div class="letter" onclick="openLetter(this)">
+      LETTER#2
+      <div class="letter-content">
+        i understand if sometimes u feel bored.
+stability often feels quiet.
+but behind this silence, i never stop loving u, noticing u, appreciating u.
+even when u don’t see it — i’m still here, choosing u.
+      </div>
+    </div>
+    <div class="letter" onclick="openLetter(this)">
+      LETTER#3
+      <div class="letter-content">
+        u are not just my girlfriend, u're my safe place.
+i don’t need constant excitement — i need u.
+and even in the ordinary days, my heart stays full, simply because u exist beside me.
+      </div>
+    </div>
+    <div class="letter" onclick="openLetter(this)">
+      LETTER#4
+      <div class="letter-content">
+        i know u worry if this is getting too ordinary.
+but maybe love isn’t always about fireworks.
+maybe it’s about quiet comfort, small moments, and the quiet knowing:
+that no matter what, i want u to stay — and i will keep choosing u. aku pengen jatuh cinta ke kamu dengan cara baru setiap hari, dan aku akan terus cari cara bikin kamu gak bosan — kayak bikin web ini. 🤍
+      </div>
+    </div>
+  </div>
+
+  <button class="btn-next" onclick="location.href='stage-4-gallery.html'">lets go ke stage lamjutnya</button>
+
+  <script>
+    function openLetter(letter) {
+      letter.classList.toggle('opened');
+    }
+  </script>
+</body>
+</html>
